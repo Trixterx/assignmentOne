@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace assignmentOne
 {
@@ -8,76 +10,96 @@ namespace assignmentOne
         {
             Console.Title = "Assignment One";
 
-            char opOne, opTwo;
-            int nrOne = 0, nrTwo = 0, nrThree = 0, sum = 0;
-            List<int> nrList = new List<int>();
-            nrList.Add(22);
+            var nrList = new List<double>();
+            char opOne, opTwo, endChar;
+            double nrOne, nrTwo, nrThree, sum = 0;
+            bool endBool = false;
 
+            do
+            {
+                Console.Write("Enter first operator: ");
+                opOne = Console.ReadLine()[0];
 
-            Console.Write("Enter first operator: ");
-            opOne = Console.ReadLine()[0];
+                Console.Write("Enter second operator: ");
+                opTwo = Console.ReadLine()[0];
 
-            Console.Write("Enter second operator: ");
-            opTwo = Console.ReadLine()[0];
+                Console.Write("Enter first term: ");
+                nrOne = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter first term: ");
-            nrOne = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter second term: ");
+                nrTwo = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter second term: ");
-            nrTwo = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter third term: ");
+                nrThree = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter third term: ");
-            nrThree = Convert.ToInt32(Console.ReadLine());
+                // First operator
+                if (opOne == '+')
+                {
+                    sum = nrOne + nrTwo;
+                }
+                if (opOne == '-')
+                {
+                    sum = nrOne - nrTwo;
+                }
+                if (opOne == '*')
+                {
+                    sum = nrOne * nrTwo;
+                }
+                if (opOne == '/')
+                {
+                    sum = nrOne / nrTwo;
+                }
 
-            // First operator
-            if (opOne == '+')
-            {
-                sum = nrOne + nrTwo;
-            }
-            if (opOne == '-')
-            {
-                sum = nrOne - nrTwo;
-            }
-            if (opOne == '*')
-            {
-                sum = nrOne * nrTwo;
-            }
-            if (opOne == '/')
-            {
-                sum = nrOne / nrTwo;
-            }
-            // Second operator
-            if (opTwo == '+')
-            {
-                sum = sum + nrThree;
-            }
-            if (opOne == '-')
-            {
-                sum = sum - nrThree;
-            }
-            if (opOne == '*')
-            {
-                sum = sum * nrThree;
-            }
-            if (opOne == '/')
-            {
-                sum = sum / nrThree;
-            }
-            Console.WriteLine($"{nrOne} {opOne} {nrTwo} {opTwo} {nrThree} = {sum}");
+                // Second operator
+                if (opTwo == '+')
+                {
+                    sum = sum + nrThree;
+                }
+                if (opTwo == '-')
+                {
+                    sum = sum - nrThree;
+                }
+                if (opTwo == '*')
+                {
+                    sum = sum * nrThree;
+                }
+                if (opTwo == '/')
+                {
+                    sum = sum / nrThree;
+                }
 
+                nrList.Add(sum);
+                Console.WriteLine($"{nrOne} {opOne} {nrTwo} {opTwo} {nrThree} = {sum}");
 
-            if (sum < 100)
-            {
-                Console.WriteLine("Less then a hundred.");
-            }
-            else if (sum > 100)
-            {
-                Console.WriteLine("More then a hundred.");
-            }
-            else if (sum == 100)
-            {
-                Console.WriteLine("Cool, now you have a hundred, clap clap");
-            }
+                if (sum < 100)
+                {
+                    Console.WriteLine("Less then a hundred.");
+                }
+                if (sum > 100)
+                {
+                    Console.WriteLine("More then a hundred.");
+                }
+                if (sum == 100)
+                {
+                    Console.WriteLine("Cool, now you have a hundred, clap clap");
+                }
+
+                Console.WriteLine("Try again? y/n");
+                endChar = Console.ReadLine()[0];
+
+                if (endChar == 'Y' || endChar == 'y')
+                {
+                    endBool = false;
+                }
+                if (endChar == 'N' || endChar == 'n')
+                {
+                    endBool = true;
+                }
+
+            } while (endBool == false);
+
+            Console.WriteLine(nrList.Sum());
+            Console.ReadKey();
         }
     }
 }
