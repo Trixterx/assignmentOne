@@ -10,9 +10,9 @@ namespace assignmentOne
         {
             Console.Title = "Assignment One";
 
-            var nrList = new List<double>();
+            List<double> nrList = new List<double>();
             char opOne, opTwo, endChar;
-            double nrOne, nrTwo, nrThree, sum = 0;
+            double nrOne, nrTwo, nrThree, sum = 0, nrListSum = 0;
             bool endBool = false;
 
             do
@@ -98,7 +98,13 @@ namespace assignmentOne
 
             } while (endBool == false);
 
-            Console.WriteLine($"Thank you for playing. The sum of all round is {nrList.Sum()}. Bye");
+            // Using two different methods to get the sum of the list. One with for loop that adds together the objects and one with Linq with .Sum().
+            for (int i = 0; i < nrList.Count; i++)
+            {
+                nrListSum = nrListSum + nrList[i];
+            }
+            Console.WriteLine($"Thank you for playing. The sum of all round is {nrListSum}. Counted using a for loop. Bye");
+            Console.WriteLine($"Thank you for playing. The sum of all round is {nrList.Sum()}. Counted using Linq with .Sum(). Bye");
             Console.ReadKey();
         }
     }
