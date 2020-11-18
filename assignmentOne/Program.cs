@@ -10,12 +10,12 @@ namespace assignmentOne
         {
             Console.Title = "Assignment One";
 
-            List<double> nrList = new List<double>();
-            char opOne, opTwo, endChar;
-            double nrOne, nrTwo, nrThree, sum = 0, nrListSum = 0;
-            bool endBool = false;
-
-            do
+            List<double> numberList = new List<double>();
+            char opOne, opTwo, retryOrEnd;
+            double termOne, termTwo, termThree, sum = 0, numberListSum = 0;
+            bool runProg = true;
+                
+            while (runProg == true)
             {
                 Console.Write("Enter first operator: ");
                 opOne = Console.ReadLine()[0];
@@ -24,52 +24,52 @@ namespace assignmentOne
                 opTwo = Console.ReadLine()[0];
 
                 Console.Write("Enter first term: ");
-                nrOne = Convert.ToInt32(Console.ReadLine());
+                termOne = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("Enter second term: ");
-                nrTwo = Convert.ToInt32(Console.ReadLine());
+                termTwo = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("Enter third term: ");
-                nrThree = Convert.ToInt32(Console.ReadLine());
+                termThree = Convert.ToInt32(Console.ReadLine());
 
                 // First operator
                 if (opOne == '+')
                 {
-                    sum = nrOne + nrTwo;
+                    sum = termOne + termTwo;
                 }
                 else if (opOne == '-')
                 {
-                    sum = nrOne - nrTwo;
+                    sum = termOne - termTwo;
                 }
                 else if (opOne == '*')
                 {
-                    sum = nrOne * nrTwo;
+                    sum = termOne * termTwo;
                 }
                 else if (opOne == '/')
                 {
-                    sum = nrOne / nrTwo;
+                    sum = termOne / termTwo;
                 }
 
                 // Second operator
                 if (opTwo == '+')
                 {
-                    sum = sum + nrThree;
+                    sum = sum + termThree;
                 }
                 else if (opTwo == '-')
                 {
-                    sum = sum - nrThree;
+                    sum = sum - termThree;
                 }
                 else if (opTwo == '*')
                 {
-                    sum = sum * nrThree;
+                    sum = sum * termThree;
                 }
                 else if (opTwo == '/')
                 {
-                    sum = sum / nrThree;
+                    sum = sum / termThree;
                 }
 
-                nrList.Add(sum);
-                Console.WriteLine($"{nrOne} {opOne} {nrTwo} {opTwo} {nrThree} = {sum}");
+                numberList.Add(sum);
+                Console.WriteLine($"{termOne} {opOne} {termTwo} {opTwo} {termThree} = {sum}");
 
                 if (sum < 100)
                 {
@@ -85,26 +85,25 @@ namespace assignmentOne
                 }
 
                 Console.WriteLine("Try again? y/n");
-                endChar = Console.ReadLine()[0];
+                retryOrEnd = Console.ReadLine()[0];
 
-                if (endChar == 'Y' || endChar == 'y')
+                if (retryOrEnd == 'Y' || retryOrEnd == 'y')
                 {
-                    endBool = false;
+                    runProg = true;
                 }
-                else if (endChar == 'N' || endChar == 'n')
+                else if (retryOrEnd == 'N' || retryOrEnd == 'n')
                 {
-                    endBool = true;
+                    runProg = false;
                 }
-
-            } while (endBool == false);
+            }
 
             // Using two different methods to get the sum of the list. One with for loop that adds together the objects and one with Linq with .Sum().
-            for (int i = 0; i < nrList.Count; i++)
+            for (int i = 0; i < numberList.Count; i++)
             {
-                nrListSum = nrListSum + nrList[i];
+                numberListSum = numberListSum + numberList[i];
             }
-            Console.WriteLine($"Thank you for playing. The sum of all round is {nrListSum}. Counted using a for loop. Bye");
-            Console.WriteLine($"Thank you for playing. The sum of all round is {nrList.Sum()}. Counted using Linq with .Sum(). Bye");
+            Console.WriteLine($"Thank you for playing. The sum of all round is {numberListSum}. Counted using a for loop. Bye");
+            Console.WriteLine($"Thank you for playing. The sum of all round is {numberList.Sum()}. Counted using Linq with .Sum(). Bye");
             Console.ReadKey();
         }
     }
