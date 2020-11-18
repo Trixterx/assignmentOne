@@ -98,7 +98,7 @@ namespace assignmentOne
 
             } while (endBool == false);
 
-            Console.WriteLine(nrList.Sum());
+            Console.WriteLine($"Thank you for playing. The sum of all round is {nrList.Sum()}. Bye");
             Console.ReadKey();
         }
     }
