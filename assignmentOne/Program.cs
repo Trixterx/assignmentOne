@@ -37,15 +37,15 @@ namespace assignmentOne
                 {
                     sum = nrOne + nrTwo;
                 }
-                if (opOne == '-')
+                else if (opOne == '-')
                 {
                     sum = nrOne - nrTwo;
                 }
-                if (opOne == '*')
+                else if (opOne == '*')
                 {
                     sum = nrOne * nrTwo;
                 }
-                if (opOne == '/')
+                else if (opOne == '/')
                 {
                     sum = nrOne / nrTwo;
                 }
@@ -55,15 +55,15 @@ namespace assignmentOne
                 {
                     sum = sum + nrThree;
                 }
-                if (opTwo == '-')
+                else if (opTwo == '-')
                 {
                     sum = sum - nrThree;
                 }
-                if (opTwo == '*')
+                else if (opTwo == '*')
                 {
                     sum = sum * nrThree;
                 }
-                if (opTwo == '/')
+                else if (opTwo == '/')
                 {
                     sum = sum / nrThree;
                 }
@@ -75,11 +75,11 @@ namespace assignmentOne
                 {
                     Console.WriteLine("Less then a hundred.");
                 }
-                if (sum > 100)
+                else if (sum > 100)
                 {
                     Console.WriteLine("More then a hundred.");
                 }
-                if (sum == 100)
+                else if (sum == 100)
                 {
                     Console.WriteLine("Cool, now you have a hundred, clap clap");
                 }
@@ -91,7 +91,7 @@ namespace assignmentOne
                 {
                     endBool = false;
                 }
-                if (endChar == 'N' || endChar == 'n')
+                else if (endChar == 'N' || endChar == 'n')
                 {
                     endBool = true;
                 }
