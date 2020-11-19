@@ -14,7 +14,7 @@ namespace assignmentOne
             char opOne, opTwo, retryOrEnd;
             double termOne, termTwo, termThree, sum = 0, numberListSum = 0;
             bool runProg = true;
-                
+
             while (runProg == true)
             {
                 Console.Write("Enter first operator: ");
