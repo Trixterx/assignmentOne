@@ -19,53 +19,47 @@ namespace assignmentOne
             {
                 Console.Write("Enter first operator: ");
                 opOne = Console.ReadLine()[0];
-
                 Console.Write("Enter second operator: ");
                 opTwo = Console.ReadLine()[0];
-
                 Console.Write("Enter first term: ");
                 termOne = Convert.ToInt32(Console.ReadLine());
-
                 Console.Write("Enter second term: ");
                 termTwo = Convert.ToInt32(Console.ReadLine());
-
                 Console.Write("Enter third term: ");
                 termThree = Convert.ToInt32(Console.ReadLine());
 
                 // First operator
-                if (opOne == '+')
+                switch (opOne)
                 {
-                    sum = termOne + termTwo;
-                }
-                else if (opOne == '-')
-                {
-                    sum = termOne - termTwo;
-                }
-                else if (opOne == '*')
-                {
-                    sum = termOne * termTwo;
-                }
-                else if (opOne == '/')
-                {
-                    sum = termOne / termTwo;
+                    case '+':
+                        sum = termOne + termTwo;
+                        break;
+                    case '-':
+                        sum = termOne - termTwo;
+                        break;
+                    case '*':
+                        sum = termOne * termTwo;
+                        break;
+                    case '/':
+                        sum = termOne / termTwo;
+                        break;
                 }
 
                 // Second operator
-                if (opTwo == '+')
+                switch (opTwo)
                 {
-                    sum = sum + termThree;
-                }
-                else if (opTwo == '-')
-                {
-                    sum = sum - termThree;
-                }
-                else if (opTwo == '*')
-                {
-                    sum = sum * termThree;
-                }
-                else if (opTwo == '/')
-                {
-                    sum = sum / termThree;
+                    case '+':
+                        sum = sum + termThree;
+                        break;
+                    case '-':
+                        sum = sum - termThree;
+                        break;
+                    case '*':
+                        sum = sum * termThree;
+                        break;
+                    case '/':
+                        sum = sum / termThree;
+                        break;
                 }
 
                 numberList.Add(sum);
