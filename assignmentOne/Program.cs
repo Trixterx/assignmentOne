@@ -49,16 +49,16 @@ namespace assignmentOne
                 switch (opTwo)
                 {
                     case '+':
-                        sum = sum + termThree;
+                        sum += termThree;
                         break;
                     case '-':
-                        sum = sum - termThree;
+                        sum -= termThree;
                         break;
                     case '*':
-                        sum = sum * termThree;
+                        sum *= termThree;
                         break;
                     case '/':
-                        sum = sum / termThree;
+                        sum /= termThree;
                         break;
                 }
 
@@ -91,10 +91,9 @@ namespace assignmentOne
                 }
             }
 
-            // Using two different methods to get the sum of the list. One with for loop that adds together the objects and one with Linq with .Sum().
             for (int i = 0; i < numberList.Count; i++)
             {
-                numberListSum = numberListSum + numberList[i];
+                numberListSum += numberList[i];
             }
             Console.WriteLine($"Thank you for playing. The sum of all round is {numberListSum}. Counted using a for loop. Bye");
             Console.WriteLine($"Thank you for playing. The sum of all round is {numberList.Sum()}. Counted using Linq with .Sum(). Bye");
