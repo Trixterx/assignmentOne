@@ -10,7 +10,6 @@ namespace assignmentOne
         {
             RunProg();
         }
-
         static void RunProg()
         {
             Console.Title = "Assignment One";
@@ -68,7 +67,6 @@ namespace assignmentOne
             Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using Linq with .Sum(). Bye", numberList.Sum());
             Console.ReadKey();
         }
-
         static double EndSum(List<double> numberList)
         {
             double sum = 0;
