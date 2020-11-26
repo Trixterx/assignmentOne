@@ -19,6 +19,7 @@ namespace assignmentOne
 
             Console.Title = "Assignment One";
 
+
             while (runProg == true)
             {
                 Console.Write("Enter first operator: ");
