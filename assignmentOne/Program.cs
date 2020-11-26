@@ -63,7 +63,7 @@ namespace assignmentOne
                 }
             }
             numberListSum = CalcEndSum(numberList);
-            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using a for loop. Bye", numberListSum);
+            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using a for-loop. Bye", numberListSum);
             Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using Linq with .Sum(). Bye", numberList.Sum());
             Console.ReadKey();
         }
