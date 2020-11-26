@@ -67,6 +67,42 @@ namespace assignmentOne
             Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using Linq with .Sum(). Bye", numberList.Sum());
             Console.ReadKey();
         }
+        static double DoOp(char op, double a, double b)
+        {
+            double sum = 0;
+            switch (op)
+            {
+                case '+':
+                    sum = Addition(a, b);
+                    break;
+                case '-':
+                    sum = Subtraction(a, b);
+                    break;
+                case '*':
+                    sum = Multiplication(a, b);
+                    break;
+                case '/':
+                    sum = Division(a, b);
+                    break;
+            }
+            return sum;
+        }
+        static double Addition(double a, double b)
+        {
+            return a + b;
+        }
+        static double Subtraction(double a, double b)
+        {
+            return a - b;
+        }          
+        static double Multiplication(double a, double b)
+        {
+            return a * b;
+        }           
+        static double Division(double a, double b)
+        {
+            return a / b;
+        }
         static double CalcEndSum(List<double> numberList)
         {
             double sum = 0;
@@ -75,42 +111,6 @@ namespace assignmentOne
                 sum += numberList[i];
             }
             return sum;
-        }
-        static double DoOp(char op, double x, double y)
-        {
-            double sum = 0;
-            switch (op)
-            {
-                case '+':
-                    sum = Addition(x, y);
-                    break;
-                case '-':
-                    sum = Subtraction(x, y);
-                    break;
-                case '*':
-                    sum = Multiplication(x, y);
-                    break;
-                case '/':
-                    sum = Division(x, y);
-                    break;
-            }
-            return sum;
-        }
-        static double Addition(double x, double y)
-        {
-            return x + y;
-        }
-        static double Subtraction(double x, double y)
-        {
-            return x - y;
-        }          
-        static double Multiplication(double x, double y)
-        {
-            return x * y;
-        }           
-        static double Division(double x, double y)
-        {
-            return x / y;
         }
     }
 }
