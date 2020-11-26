@@ -8,13 +8,18 @@ namespace assignmentOne
     {
         static void Main(string[] args)
         {
+            RunProg();
+        }
+
+        static void RunProg()
+        {
             Console.Title = "Assignment One";
 
-            List<double> numberList = new List<double>();
+            var numberList = new List<double>();
             char opOne, opTwo, retryOrEnd;
-            double termOne, termTwo, termThree, sum = 0, numberListSum = 0;
+            double termOne, termTwo, termThree, opSum, numberListSum;
             bool runProg = true;
-            
+
             while (runProg == true)
             {
                 Console.Write("Enter first operator: ");
@@ -28,52 +33,20 @@ namespace assignmentOne
                 Console.Write("Enter third term: ");
                 termThree = Convert.ToInt32(Console.ReadLine());
 
-                // First operator
-                switch (opOne)
-                {
-                    case '+':
-                        sum = termOne + termTwo;
-                        break;
-                    case '-':
-                        sum = termOne - termTwo;
-                        break;
-                    case '*':
-                        sum = termOne * termTwo;
-                        break;
-                    case '/':
-                        sum = termOne / termTwo;
-                        break;
-                }
+                opSum = DoOp(opOne, termOne, termTwo);
+                opSum = DoOp(opTwo, opSum, termThree);
+                numberList.Add(opSum);
+                Console.WriteLine("{0} {1} {2} {3} {4} = {5}", termOne, opOne, termTwo, opTwo, termThree, opSum);
 
-                // Second operator
-                switch (opTwo)
-                {
-                    case '+':
-                        sum += termThree;
-                        break;
-                    case '-':
-                        sum -= termThree;
-                        break;
-                    case '*':
-                        sum *= termThree;
-                        break;
-                    case '/':
-                        sum /= termThree;
-                        break;
-                }
-
-                numberList.Add(sum);
-                Console.WriteLine($"{termOne} {opOne} {termTwo} {opTwo} {termThree} = {sum}");
-
-                if (sum < 100)
+                if (opSum < 100)
                 {
                     Console.WriteLine("Less then a hundred.");
                 }
-                else if (sum > 100)
+                else if (opSum > 100)
                 {
                     Console.WriteLine("More then a hundred.");
                 }
-                else if (sum == 100)
+                else if (opSum == 100)
                 {
                     Console.WriteLine("Cool, now you have a hundred, clap clap");
                 }
@@ -90,14 +63,56 @@ namespace assignmentOne
                     runProg = false;
                 }
             }
+            numberListSum = EndSum(numberList);
+            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using a for loop. Bye", numberListSum);
+            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using Linq with .Sum(). Bye", numberList.Sum());
+            Console.ReadKey();
+        }
 
+        static double EndSum(List<double> numberList)
+        {
+            double sum = 0;
             for (int i = 0; i < numberList.Count; i++)
             {
-                numberListSum += numberList[i];
+                sum += numberList[i];
             }
-            Console.WriteLine($"Thank you for playing. The sum of all round is {numberListSum}. Counted using a for loop. Bye");
-            Console.WriteLine($"Thank you for playing. The sum of all round is {numberList.Sum()}. Counted using Linq with .Sum(). Bye");
-            Console.ReadKey();
+            return sum;
+        }
+        static double DoOp(char op, double x, double y)
+        {
+            double sum = 0;
+            switch (op)
+            {
+                case '+':
+                    sum = Addition(x, y);
+                    break;
+                case '-':
+                    sum = Subtraction(x, y);
+                    break;
+                case '*':
+                    sum = Multiplication(x, y);
+                    break;
+                case '/':
+                    sum = Division(x, y);
+                    break;
+            }
+            return sum;
+        }
+        static double Addition(double x, double y)
+        {
+            return x + y;
+        }
+        static double Subtraction(double x, double y)
+        {
+            return x - y;
+        }          
+        static double Multiplication(double x, double y)
+        {
+            return x * y;
+        }           
+        static double Division(double x, double y)
+        {
+            return x / y;
         }
     }
 }
