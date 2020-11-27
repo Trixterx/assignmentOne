@@ -8,13 +8,13 @@ namespace assignmentOne
     {
         static void Main(string[] args)
         {
-            StartProgram();
+            StartProg();
         }
-        static void StartProgram()
+        static void StartProg()
         {
             var numberList = new List<double>();
-            char opOne, opTwo, retry;
-            double termOne, termTwo, termThree, sum, numberListSum;
+            char op1, op2, retry;
+            double term1, term2, term3, sum;
             bool runProg = true;
 
             Console.Title = "Assignment One";
@@ -22,20 +22,20 @@ namespace assignmentOne
             while (runProg == true)
             {
                 Console.Write("Enter first operator: ");
-                opOne = Console.ReadLine()[0];
+                op1 = Console.ReadLine()[0];
                 Console.Write("Enter second operator: ");
-                opTwo = Console.ReadLine()[0];
+                op2 = Console.ReadLine()[0];
                 Console.Write("Enter first term: ");
-                termOne = Convert.ToInt32(Console.ReadLine());
+                term1 = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Enter second term: ");
-                termTwo = Convert.ToInt32(Console.ReadLine());
+                term2 = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Enter third term: ");
-                termThree = Convert.ToInt32(Console.ReadLine());
+                term3 = Convert.ToInt32(Console.ReadLine());
 
-                sum = DoOp(opOne, termOne, termTwo);
-                sum = DoOp(opTwo, sum, termThree);
+                sum = DoOp(op1, term1, term2);
+                sum = DoOp(op2, sum, term3);
                 numberList.Add(sum);
-                Console.WriteLine("{0} {1} {2} {3} {4} = {5}", termOne, opOne, termTwo, opTwo, termThree, sum);
+                Console.WriteLine("{0} {1} {2} {3} {4} = {5}", term1, op1, term2, op2, term3, sum);
 
                 if (sum < 100)
                 {
@@ -62,8 +62,8 @@ namespace assignmentOne
                     runProg = false;
                 }
             }
-            numberListSum = CalcEndSum(numberList);
-            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using a for-loop. Bye", numberListSum);
+            sum = CalcEndSum(numberList);
+            Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using a for-loop. Bye", sum);
             Console.WriteLine("Thank you for playing. The sum of all round is {0}. Counted using Linq with .Sum(). Bye", numberList.Sum());
             Console.ReadKey();
         }
@@ -73,35 +73,19 @@ namespace assignmentOne
             switch (op)
             {
                 case '+':
-                    sum = Addition(a, b);
+                    sum = a + b;
                     break;
                 case '-':
-                    sum = Subtraction(a, b);
+                    sum = a - b;
                     break;
                 case '*':
-                    sum = Multiplication(a, b);
+                    sum = a * b;
                     break;
                 case '/':
-                    sum = Division(a, b);
+                    sum = a / b;
                     break;
             }
             return sum;
-        }
-        static double Addition(double a, double b)
-        {
-            return a + b;
-        }
-        static double Subtraction(double a, double b)
-        {
-            return a - b;
-        }          
-        static double Multiplication(double a, double b)
-        {
-            return a * b;
-        }           
-        static double Division(double a, double b)
-        {
-            return a / b;
         }
         static double CalcEndSum(List<double> numberList)
         {
