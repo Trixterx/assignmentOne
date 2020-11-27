@@ -8,9 +8,9 @@ namespace assignmentOne
     {
         static void Main(string[] args)
         {
-            RunProg();
+            StartProgram();
         }
-        static void RunProg()
+        static void StartProgram()
         {
             var numberList = new List<double>();
             char opOne, opTwo, retry;
@@ -18,7 +18,6 @@ namespace assignmentOne
             bool runProg = true;
 
             Console.Title = "Assignment One";
-
 
             while (runProg == true)
             {
@@ -42,13 +41,13 @@ namespace assignmentOne
                 {
                     Console.WriteLine("Less then a hundred.");
                 }
-                else if (sum > 100)
-                {
-                    Console.WriteLine("More then a hundred.");
-                }
                 else if (sum == 100)
                 {
                     Console.WriteLine("Cool, now you have a hundred, clap clap");
+                }
+                else
+                {
+                    Console.WriteLine("More then a hundred.");
                 }
 
                 Console.WriteLine("Try again? y/n");
